@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HomePage from '@/components/HomePage';
-import MRIPage from '@/components/MRIPage';
+import HomePage from '@/components/HomePage/HomePage.vue';
+import MRIPage from '@/components/MRIPage/MRIPage.vue';
 
 Vue.use(Router);
 

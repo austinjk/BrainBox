@@ -6,6 +6,7 @@ npm-debug.log
 abide1
 bulk-upload.sh
 public/data
+data
 public/project/braincatalogue-dev
 node_modules
 tmp

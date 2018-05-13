@@ -7,7 +7,7 @@
             <a href="https://github.com/OpenNeuroLab/BrainBox/issues" target="_blank"><img id="bug" class="button issues-img" title="report a bug" src='../assets/img/bug.svg'/></a>
             <a href="https://github.com/OpenNeuroLab" target="_blank"><img id="github" class="button github-img" title="join our github project"  src='../assets/img/github.svg'/></a>
             <div id="MyLogin" class="login-button">
-                <span>login</span>
+                <span>Login with GitHub</span>
             </div>
         </div>
     </div>
@@ -75,7 +75,6 @@ img.icon {
   transition: top 0.5s, opacity 0.5s;
   -moz-transition: top 0.5s, opacity 0.5s;
   -webkit-transition: top 0.5s, opacity 0.5s;
-  float: right;
   margin-right: 10px;
   display: inline-block;
   background-color: #111;

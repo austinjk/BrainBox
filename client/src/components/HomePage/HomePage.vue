@@ -1,15 +1,15 @@
 <template>
-<div>
-  <menubar/>
+<div class="home-container">
+  <menubar class="menubar"/>
 
-    <div class="slide">
+  <div class="slide">
 
-        <img id="neuronsImg" src="../assets/img/neurons.jpg" width="100%" />
+        <!-- <img id="neuronsImg" src="../../assets/img/neurons.jpg" width="100%" /> -->
         <video id="neurons" width="100%" autoplay loop>
-            <source src="../assets/img/neurons.mp4" type="video/mp4">
+            <source src="../../assets/img/neurons.mp4" type="video/mp4">
         </video>
         <div class="content">
-            <img id="logo" src="../assets/img/brainbox-logo.svg"/>
+            <img id="logo" src="../../assets/img/brainbox-logo.svg"/>
             <h2>Real-time collaboration in neuroimaging</h2>
             <p>
                 BrainBox allows you to visualise, segment and annotate collaboratively
@@ -30,15 +30,16 @@
                 <div id="go" class="pushButton" style="display:inline-block;width:32px;line-height:30px" onclick="goToURL()">Go</div>
             </div>
         </div>
-    </div>
+  </div>
 
-   <brainbox-footer/>
+   <brainbox-footer class="footer"/>
+
   </div>
 </template>
 
 <script>
-import Footer from "./Footer";
-import Menubar from "./Menubar";
+import Footer from "../Footer.vue";
+import Menubar from "../Menubar.vue";
 
 export default {
   name: "HomePage",
@@ -55,20 +56,32 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  font-size: 14px;
-  color: white;
+.home-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 30px 1fr 50px;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "header"
+    "slide"
+    "footer";
 }
 
-html,
-body {
-  background-color: #222;
-  height: 100%;
-  margin: 0px;
-  font: 16px/20px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
-    Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
+.menubar {
+  grid-area: menubar;
+}
+
+.slide {
+  grid-area: slide;
+  justify-self: stretch;
+  align-self: stretch;
+  overflow: hidden;
+  background: #222;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #000;
 }
 
 h1 {
@@ -112,26 +125,6 @@ a {
 }
 .pressed {
   background-color: #555 !important;
-}
-
-.mui-select {
-  border: none;
-  background: none; /* no color, no decoration */
-  color: white;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.slide {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  background: #222;
 }
 
 .content {
@@ -181,20 +174,8 @@ img#logo {
   text-align: center;
 }
 
-#neuronsImg {
-  filter: contrast(150%) brightness(60%);
-  -webkit-filter: contrast(150%) brightness(60%);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 #neurons {
   filter: contrast(150%) brightness(60%);
   -webkit-filter: contrast(150%) brightness(60%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
 }
 </style>

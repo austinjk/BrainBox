@@ -1,0 +1,327 @@
+<template>
+  <div class="grid-container">
+    <menubar/>
+
+    <div class="logo-container">
+      <a href='/'>
+          <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
+      </a><span id="fontLogo">
+          <a href='/'>BrainBox</a>
+      </span>
+    </div>
+
+
+    <annotation-pane class="annotation-container"/>
+
+    <div class="atlasmaker-container">
+      <!-- AtlasMaker -->
+      <div id="stereotaxic">
+      </div>
+      <!-- End AtlasMaker -->
+    </div>
+
+    <brainbox-footer class="footer"/>
+  </div>
+
+</template>
+
+<script>
+import Menubar from "../Menubar";
+import Footer from "../Footer";
+
+import AnnotationPane from "./AnnotationPane";
+
+export default {
+  name: "MRIPage",
+  components: {
+    Menubar,
+    AnnotationPane,
+    BrainboxFooter: Footer
+  }
+};
+</script>
+
+<style lang="scss">
+* {
+  font-size: 14px;
+  color: white;
+}
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 30px 50px 1fr 1fr 50px;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "header"
+    "logo"
+    "annotation"
+    "atlasmaker"
+    "footer";
+}
+
+.atlasmaker-container {
+  grid-area: atlasmaker;
+}
+
+.annotation-container {
+  grid-area: annotation;
+}
+
+.logo-container {
+  height: 50px;
+  grid-area: logo;
+  display: flex;
+}
+
+.menubar {
+  grid-area: menubar;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #000;
+}
+
+h1 {
+  font-size: 1rem;
+  text-align: center;
+}
+h2,
+p {
+  font-family: sans-serif;
+  text-align: center;
+}
+a {
+  color: white;
+}
+.linkNoULine {
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+#menu {
+  float: right;
+  margin-right: 10px;
+  display: inline-block;
+  font: 16px/24px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
+    Verdana, sans-serif;
+}
+#menu img {
+  margin-left: 15px;
+}
+#MyLogin {
+  display: inline-block;
+  margin-left: 15px;
+}
+/* text annotations
+------------------------ */
+tr {
+  vertical-align: top;
+}
+tr.selected {
+  background-color: #444;
+}
+table {
+  border-collapse: collapse;
+}
+.tabContent th {
+  font-weight: bold;
+  border-bottom: thin solid white;
+}
+.tabContent {
+  width: 100%;
+  border-bottom: thin solid white;
+  table-layout: fixed;
+}
+.tabContent td {
+  font-weight: normal;
+}
+.tabContent th,
+.tabContent td {
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  margin-bottom: 1rem;
+}
+
+/* Content: Data
+---------------------- */
+#data {
+  // display: none;
+}
+
+.hidden span {
+  display: none;
+}
+.hidden:after {
+  content: "••••";
+}
+.noEmpty:empty:before {
+  content: "Empty";
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.noEmptyWithPlaceholder:empty:before {
+  content: attr(placeholder);
+  color: rgba(255, 255, 255, 0.4);
+}
+td {
+  word-break: break-word;
+}
+#content {
+  margin: 0 auto;
+}
+#annotationsPane {
+  background-color: #333;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  max-width: 900px;
+  flex: 0 1 auto;
+  vertical-align: top;
+}
+#annotationsPane th,
+#annotationsPane td {
+  overflow: hidden;
+}
+.tabContent {
+  margin-left: 10px;
+  text-align: left;
+}
+#stereotaxic {
+  width: 600px;
+}
+select {
+  border: none;
+  background: none; /* no color, no decoration */
+  color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100px;
+  text-overflow: ellipsis;
+}
+
+/******************************** resizable layout ******************************/
+/* for larger screen (computer, big iPad, small iPad landscape) */
+@media all and (max-width: 1300px) {
+  #content {
+    flex-direction: column;
+    max-width: 700px;
+  }
+  #annotationsPane {
+    max-width: none;
+    margin-right: 0px;
+  }
+  #stereotaxic {
+    min-width: 100%;
+  }
+}
+/************************************* access widget ********************************/
+.access {
+  padding-top: 5px;
+  text-decoration: none;
+  border: none;
+}
+.view,
+.edit,
+.add,
+.remove {
+  /* cursor: pointer; */
+  padding: 1px 1px 1px 0px;
+}
+.view:before,
+.edit:before,
+.add:before,
+.remove:before {
+  background-size: 15px 15px;
+  width: 15px;
+  height: 15px;
+  content: "";
+  display: inline-block;
+  text-decoration: none;
+}
+/* view */
+[data-level="0"] .view:before {
+  background-image: url("/img/eye.svg");
+}
+[data-level="1"] .view:before,
+[data-level="2"] .view:before,
+[data-level="3"] .view:before,
+[data-level="4"] .view:before {
+  background-image: url("/img/eye-circle.svg");
+}
+/* edit */
+[data-level="0"] .edit:before,
+[data-level="1"] .edit:before {
+  background-image: url("/img/pencil.svg");
+}
+[data-level="2"] .edit:before,
+[data-level="3"] .edit:before,
+[data-level="4"] .edit:before {
+  background-image: url("/img/pencil-circle.svg");
+}
+/* add */
+[data-level="0"] .add:before,
+[data-level="1"] .add:before,
+[data-level="2"] .add:before {
+  background-image: url("/img/plus-small.svg");
+}
+[data-level="3"] .add:before,
+[data-level="4"] .add:before {
+  background-image: url("/img/plus-small-circle.svg");
+}
+/* remove */
+[data-level="0"] .remove:before,
+[data-level="1"] .remove:before,
+[data-level="2"] .remove:before,
+[data-level="3"] .remove:before {
+  background-image: url("/img/minus-small.svg");
+}
+[data-level="4"] .remove:before {
+  background-image: url("/img/minus-small-circle.svg");
+}
+/************************************ dropdown menu ********************************/
+.autocomplete {
+  border: none;
+  border-radius: 0px;
+  outline: none;
+  padding: 0px 0px 5px 0px;
+  vertical-align: bottom;
+}
+.ui-widget.ui-widget-content {
+  background: #222;
+  color: white;
+  border: none;
+}
+.ui-widget-header:active {
+  border: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  background: #555 !important;
+  color: white;
+  border: none;
+  outline: none;
+  display: block;
+}
+li div {
+  color: white; /* text color */
+  border: none;
+  margin: none;
+  padding: none;
+}
+.display {
+  padding-top: 5px;
+  text-decoration: none;
+  border: none;
+}
+</style>
