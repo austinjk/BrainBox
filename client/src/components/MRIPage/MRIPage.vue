@@ -2,13 +2,13 @@
   <div class="grid-container">
     <menubar/>
 
-    <div class="logo-container">
-      <a href='/'>
+
+      <a href='/' class="logo-container">
           <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
-      </a><span id="fontLogo">
-          <a href='/'>BrainBox</a>
-      </span>
-    </div>
+        <span class="logo-title">
+         BrainBox
+        </span>
+      </a>
 
 
     <annotation-pane class="annotation-container"/>
@@ -47,6 +47,7 @@ export default {
   color: white;
 }
 .grid-container {
+  box-sizing: border-box;
   height: 100vh;
   display: grid;
   grid-template-rows: 30px 50px 1fr 1fr 50px;
@@ -68,9 +69,22 @@ export default {
 }
 
 .logo-container {
+  box-sizing: border-box;
+  padding: 5px;
   height: 50px;
   grid-area: logo;
   display: flex;
+  text-decoration: none !important;
+  font-weight: 100;
+
+  img {
+    object-fit: contain;
+  }
+
+  .logo-title {
+    align-self: center;
+    font-size: 36px;
+  }
 }
 
 .menubar {
