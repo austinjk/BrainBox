@@ -11,6 +11,8 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto:100");
+
 * {
   font-size: 14px;
   color: white;

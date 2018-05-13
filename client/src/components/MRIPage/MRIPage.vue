@@ -1,25 +1,23 @@
 <template>
   <div class="grid-container">
-    <menubar/>
+    <menubar class="menubar-container"/>
 
-      <router-link to="/" class="logo-container">
-          <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
-        <span class="logo-title">
-         BrainBox
-        </span>
-      </router-link>
-
+    <router-link to="/" class="logo-container">
+      <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
+      <span class="logo-title">BrainBox</span>
+    </router-link>
 
     <annotation-pane class="annotation-container"/>
 
     <div class="atlasmaker-container">
       <!-- AtlasMaker -->
       <div id="stereotaxic">
+        <h1>AtlasMaker</h1>
       </div>
       <!-- End AtlasMaker -->
     </div>
 
-    <brainbox-footer class="footer"/>
+    <brainbox-footer class="footer-container"/>
   </div>
 
 </template>
@@ -50,17 +48,18 @@ export default {
   height: 100vh;
   display: grid;
   grid-template-rows: 30px 50px 1fr 1fr 50px;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "header"
-    "logo"
-    "annotation"
-    "atlasmaker"
-    "footer";
+    "menubar menubar menubar"
+    "logo logo logo"
+    "annotation annotation annotation"
+    "atlasmaker atlasmaker atlasmaker"
+    "footer footer footer";
 }
 
 .atlasmaker-container {
   grid-area: atlasmaker;
+  background-color: gray;
 }
 
 .annotation-container {
@@ -83,14 +82,16 @@ export default {
   .logo-title {
     align-self: center;
     font-size: 36px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
   }
 }
 
-.menubar {
+.menubar-container {
   grid-area: menubar;
 }
 
-.footer {
+.footer-container {
   grid-area: footer;
   background-color: #000;
 }
@@ -106,66 +107,6 @@ p {
 }
 a {
   color: white;
-}
-.linkNoULine {
-  text-decoration: none;
-  font-weight: lighter;
-}
-
-#menu {
-  float: right;
-  margin-right: 10px;
-  display: inline-block;
-  font: 16px/24px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
-    Verdana, sans-serif;
-}
-#menu img {
-  margin-left: 15px;
-}
-#MyLogin {
-  display: inline-block;
-  margin-left: 15px;
-}
-/* text annotations
------------------------- */
-tr {
-  vertical-align: top;
-}
-tr.selected {
-  background-color: #444;
-}
-table {
-  border-collapse: collapse;
-}
-.tabContent th {
-  font-weight: bold;
-  border-bottom: thin solid white;
-}
-.tabContent {
-  width: 100%;
-  border-bottom: thin solid white;
-  table-layout: fixed;
-}
-.tabContent td {
-  font-weight: normal;
-}
-.tabContent th,
-.tabContent td {
-  padding: 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
-li {
-  margin-bottom: 1rem;
-}
-
-/* Content: Data
----------------------- */
-#data {
-  // display: none;
 }
 
 .hidden span {
