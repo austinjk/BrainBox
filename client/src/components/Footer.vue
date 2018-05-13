@@ -35,7 +35,9 @@ export default {
 }
 
 #footer {
-  background-color: #111;
-  display: block;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 </style>

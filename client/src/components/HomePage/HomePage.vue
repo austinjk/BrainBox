@@ -18,21 +18,21 @@
                 or participate in the projects created by the community.
             </p>
 
-            <div style="position:relative;text-align:center">
-                <input id="url" style="display:block;width:100%;margin-bottom:1rem" type="text" placeholder="Enter the URL of an MRI (.nii.gz or .mgz) and click Go"/>
-                <select id="list" style='width:200px;height:32px;text-align-last:center' class='pushButton'>
+            <div class="search-container">
+                <input id="url" :value="selectvalue" type="text" placeholder="Enter the URL of an MRI (.nii.gz or .mgz) and click Go"/>
+                <select id="list" class='pushButton' v-model="selectvalue">
                     <option value='' disabled selected hidden>&#9662; A list of brains to try</option>
                     <option value='https://zenodo.org/record/44855/files/MRI-n4.nii.gz'>A Lion from Zenodo</option>
                     <option value='http://files.figshare.com/2284784/MRI_n4.nii.gz'>A Human from FigShare</option>
                     <option value='https://dl.dropbox.com/s/cny5b3so267bv94/p32-f18-uchar.nii.gz'>A 32 days old Ferret from DropBox</option>
                     <option value='https://s3.amazonaws.com/fcp-indi/data/Projects/ABIDE_Initiative/Outputs/freesurfer/5.1/Caltech_0051456/mri/T1.mgz&view=cor&slice=128'>A Subject from the ABIDE Initiative, from Amazon</option>
                 </select>
-                <div id="go" class="pushButton" style="display:inline-block;width:32px;line-height:30px" onclick="goToURL()">Go</div>
+                <button id="go" class="pushButton" @click="goToURL">Go</button>
             </div>
         </div>
   </div>
 
-   <brainbox-footer class="footer"/>
+   <footerbar class="footer"/>
 
   </div>
 </template>
@@ -45,12 +45,18 @@ export default {
   name: "HomePage",
   data() {
     return {
+      selectvalue: "",
       styleObject: {}
     };
   },
   components: {
-    BrainboxFooter: Footer,
+    Footerbar: Footer,
     Menubar
+  },
+  methods: {
+    goToURL() {
+      this.$router.push({ path: `/mri?url=${this.selectvalue}` });
+    }
   }
 };
 </script>
@@ -62,7 +68,7 @@ export default {
   grid-template-rows: 30px 1fr 50px;
   grid-template-columns: auto;
   grid-template-areas:
-    "header"
+    "menubar"
     "slide"
     "footer";
 }
@@ -77,6 +83,40 @@ export default {
   align-self: stretch;
   overflow: hidden;
   background: #222;
+
+  .search-container {
+    position: relative;
+    text-align: center;
+  }
+
+  #url {
+    padding: 0 5px;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #list {
+    width: 200px;
+    height: 32px;
+    text-align-last: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: none;
+    text-align: center;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  #go {
+    height: 32px;
+    text-align-last: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: none;
+    display: inline-block;
+    width: 32px;
+  }
 }
 
 .footer {

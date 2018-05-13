@@ -1,6 +1,6 @@
 <template>
    <div id="menu">
-        <div>
+        
             <img id="addProject" class="button" title="add project" src='../assets/img/plus.svg'/>
             <a href="http://openneu.ro/metasearch" target="_blank"><img id="search" class="button" title="search" src='../assets/img/search.svg'/></a>
             <a href="/doc/index.html" target="_blank"><img id="doc" class="button" title="documentation" src='../assets/img/doc.svg'/></a>
@@ -9,7 +9,7 @@
             <div id="MyLogin" class="login-button">
                 <span>Login with GitHub</span>
             </div>
-        </div>
+        
     </div>
 </template>
 
@@ -63,20 +63,19 @@ img.icon {
 }
 
 #menu {
-  position: fixed;
+  /* position: fixed; */
   z-index: 2;
   text-align: right;
   top: 0;
   margin-top: 0;
   width: 100%;
-  display: inline-block;
-  font: 16px/24px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
-    Verdana, sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   transition: top 0.5s, opacity 0.5s;
   -moz-transition: top 0.5s, opacity 0.5s;
   -webkit-transition: top 0.5s, opacity 0.5s;
   margin-right: 10px;
-  display: inline-block;
   background-color: #111;
 }
 

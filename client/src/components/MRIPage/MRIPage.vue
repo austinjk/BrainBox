@@ -2,13 +2,12 @@
   <div class="grid-container">
     <menubar/>
 
-
-      <a href='/' class="logo-container">
+      <router-link to="/" class="logo-container">
           <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
         <span class="logo-title">
          BrainBox
         </span>
-      </a>
+      </router-link>
 
 
     <annotation-pane class="annotation-container"/>

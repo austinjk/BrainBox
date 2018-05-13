@@ -6,6 +6,7 @@ import MRIPage from '@/components/MRIPage/MRIPage.vue';
 import NewProjectPage from '@/components/NewProjectPage/NewProjectPage.vue';
 import ProjectPage from '@/components/ProjectPage/ProjectPage.vue';
 import ProjectSettingsPage from '@/components/ProjectSettingsPage/ProjectSettingsPage.vue';
+import UserPage from '@/components/UserPage/UserPage.vue';
 
 
 Vue.use(Router);
@@ -14,7 +15,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HomePage',
+      name: 'home',
       component: HomePage,
     },
     {
@@ -28,7 +29,7 @@ export default new Router({
       component: NewProjectPage
     },
     {
-      path: '/project/',
+      path: '/project/:name',
       name: 'Project',
       component: ProjectPage
     },
@@ -36,6 +37,12 @@ export default new Router({
       path: '/project/:id/settings',
       name: 'ProjectSettings',
       component: ProjectSettingsPage
+    },
+    {
+      path: '/user/:id',
+      name: 'User',
+      props: true,
+      component: UserPage
     }
   ],
 });

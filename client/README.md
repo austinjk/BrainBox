@@ -1,6 +1,7 @@
-# client
+# VueJS Client-Side of BrainBox.
 
-> brainbox frontend app
+> this is the beginning of an attempt to port the server rendered mustache views + jQuery to VueJS.
+
 
 ## Build Setup
 
