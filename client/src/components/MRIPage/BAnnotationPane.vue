@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: "AnnontationPane",
+  name: "BAnnontationPane",
   data() {
     return {
       annotation: {

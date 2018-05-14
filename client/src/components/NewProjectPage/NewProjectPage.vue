@@ -3,7 +3,7 @@
     
     <!-- Header (fixed height) -->
     <div style="flex:0 0 64px">
-        <menubar/>
+        <the-menubar/>
 
         <!-- Small left-top logo -->
         <div style="display:inline-block;margin:10px">
@@ -49,20 +49,20 @@
     </div>
 
     <!-- Footer (fixed height) -->
-    <footerbar/>
+    <the-footer/>
 </div>
 
 </template>
 
 <script>
-import Menubar from "../Menubar";
-import Footer from "../Footer";
+import TheMenubar from "../TheMenubar";
+import TheFooter from "../TheFooter";
 
 export default {
   name: "NewProjectPage",
   components: {
-    Menubar,
-    Footerbar: Footer
+    TheMenubar,
+    TheFooter
   }
 };
 </script>

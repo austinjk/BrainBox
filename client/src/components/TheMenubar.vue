@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "Menubar"
+  name: "TheMenubar"
 };
 </script>
 

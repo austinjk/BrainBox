@@ -1,13 +1,13 @@
 <template>
   <div class="grid-container">
-    <menubar class="menubar-container"/>
+    <the-menubar class="menubar-container"/>
 
     <router-link to="/" class="logo-container">
       <img src='../../assets/img/brainbox-logo-small_noFont.svg'/>
       <span class="logo-title">BrainBox</span>
     </router-link>
 
-    <annotation-pane class="annotation-container"/>
+    <b-annotation-pane class="annotation-container"/>
 
     <div class="atlasmaker-container">
       <!-- AtlasMaker -->
@@ -17,23 +17,23 @@
       <!-- End AtlasMaker -->
     </div>
 
-    <brainbox-footer class="footer-container"/>
+    <the-footer class="footer-container"/>
   </div>
 
 </template>
 
 <script>
-import Menubar from "../Menubar";
-import Footer from "../Footer";
+import TheMenubar from "../TheMenubar";
+import TheFooter from "../TheFooter";
 
-import AnnotationPane from "./AnnotationPane";
+import BAnnotationPane from "./BAnnotationPane";
 
 export default {
   name: "MRIPage",
   components: {
-    Menubar,
-    AnnotationPane,
-    BrainboxFooter: Footer
+    TheMenubar,
+    BAnnotationPane,
+    TheFooter
   }
 };
 </script>

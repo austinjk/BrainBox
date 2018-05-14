@@ -1,6 +1,6 @@
 <template>
 <div class="home-container">
-  <menubar class="menubar-container"/>
+  <the-menubar class="menubar-container"/>
 
   <div class="slide">
 
@@ -35,14 +35,14 @@
         </div>
   </div>
 
-   <footerbar class="footer-container"/>
+   <the-footer class="footer-container"/>
 
   </div>
 </template>
 
 <script>
-import Footer from "../Footer.vue";
-import Menubar from "../Menubar.vue";
+import TheFooter from "../TheFooter.vue";
+import TheMenubar from "../TheMenubar.vue";
 
 export default {
   name: "HomePage",
@@ -53,8 +53,8 @@ export default {
     };
   },
   components: {
-    Footerbar: Footer,
-    Menubar
+    TheFooter,
+    TheMenubar
   },
   directives: {
     playbackRate(el, binding) {

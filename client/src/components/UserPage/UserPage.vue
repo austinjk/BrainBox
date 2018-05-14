@@ -1,21 +1,21 @@
 <template>
 <div>
-<menubar/>
+<the-menubar/>
 <h1>hello test {{id}}</h1>
 <footerbar/>
 </div>
 </template>
 
 <script>
-import Menubar from "../Menubar";
-import Footer from "../Footer";
+import TheMenubar from "../TheMenubar";
+import TheFooter from "../TheFooter";
 
 export default {
   name: "UserPage",
   props: ["id"],
   components: {
-    Menubar,
-    Footerbar: Footer
+    TheMenubar,
+    TheFooter
   }
 };
 </script>
