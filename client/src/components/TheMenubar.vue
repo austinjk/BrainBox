@@ -1,7 +1,7 @@
 <template>
    <div id="menu">
-        
-            <img id="addProject" class="button" title="add project" src='../assets/img/plus.svg'/>
+
+            <router-link to="project/new"><img id="addProject" class="button" title="add project" src='../assets/img/plus.svg'/></router-link>
             <a href="http://openneu.ro/metasearch" target="_blank"><img id="search" class="button" title="search" src='../assets/img/search.svg'/></a>
             <a href="/doc/index.html" target="_blank"><img id="doc" class="button" title="documentation" src='../assets/img/doc.svg'/></a>
             <a href="https://github.com/OpenNeuroLab/BrainBox/issues" target="_blank"><img id="bug" class="button issues-img" title="report a bug" src='../assets/img/bug.svg'/></a>
@@ -9,13 +9,13 @@
             <div id="MyLogin" class="login-button">
                 <span>Login with GitHub</span>
             </div>
-        
+
     </div>
 </template>
 
 <script>
 export default {
-  name: "TheMenubar"
+  name: 'TheMenubar',
 };
 </script>
 

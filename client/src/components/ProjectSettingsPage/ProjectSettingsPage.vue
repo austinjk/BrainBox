@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "ProjectSettingsPage"
+  name: 'ProjectSettingsPage',
 };
 </script>
 

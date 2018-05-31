@@ -3,13 +3,13 @@
 </template>
 <script>
 export default {
-  name: "BAtlasMaker",
+  name: 'BAtlasMaker',
   methods: {},
   data() {
     return {
       debug: 1,
-      hostname: "http://localhost:3000", // '', // 'http://brainbox.pasteur.fr',
-      wshostname: "ws://localhost:8080", // 'ws://brainbox.pasteur.fr:8080',
+      hostname: 'http://localhost:3000', // '', // 'http://brainbox.pasteur.fr',
+      wshostname: 'ws://localhost:8080', // 'ws://brainbox.pasteur.fr:8080',
       container: null, // Element where atlasMaker lives
       brain_offcn: null,
       brain_offtx: null,
@@ -31,7 +31,7 @@ export default {
       brain_img: {
         img: null,
         view: null,
-        slice: null
+        slice: null,
       },
       brain: 0,
       alphaLevel: 0.5,
@@ -39,7 +39,7 @@ export default {
       measureLength: null,
       User: {
         view: null,
-        tool: "show",
+        tool: 'show',
         slice: null,
         penSize: 1,
         penValue: 1,
@@ -47,7 +47,7 @@ export default {
         mouseIsDown: false,
         x0: -1,
         y0: -1,
-        mri: new Object()
+        mri: new Object(),
       },
       Collab: [],
       atlas: null,
@@ -65,7 +65,7 @@ export default {
       flagLoadingImg: { loading: false },
       flagUsePreciseCursor: false,
       msg: null,
-      msg0: "",
+      msg0: '',
       prevData: 0,
       Crsr: {
         x: undefined, // cursor x coord
@@ -76,18 +76,18 @@ export default {
         y0: undefined, // previous finger y coord
         cachedX: undefined, // finger x coord at touch start
         cachedY: undefined, // finger y coord at touch start
-        state: "move", // cursor state: move, draw, configure
+        state: 'move', // cursor state: move, draw, configure
         prevState: undefined, // state before configure
-        touchStarted: false // touch started flag
+        touchStarted: false, // touch started flag
       },
       editMode: 0, // editMode=0 to prevent editing, editMode=1 to accept it
       fullscreen: false, // fullscreen mode
       info: {}, // information displayed over each brain slice
       // undo stack
       /* DEPRECATED Undo:[], */
-      version: 1 // version of the configuration file (slice number, plane, etc). Default=1
+      version: 1, // version of the configuration file (slice number, plane, etc). Default=1
     };
-  }
+  },
 };
 </script>
 <style>

@@ -23,18 +23,18 @@
 </template>
 
 <script>
-import TheMenubar from "../TheMenubar";
-import TheFooter from "../TheFooter";
+import TheMenubar from '../TheMenubar';
+import TheFooter from '../TheFooter';
 
-import BAnnotationPane from "./BAnnotationPane";
+import BAnnotationPane from './BAnnotationPane';
 
 export default {
-  name: "MRIPage",
+  name: 'MRIPage',
   components: {
     TheMenubar,
     BAnnotationPane,
-    TheFooter
-  }
+    TheFooter,
+  },
 };
 </script>
 

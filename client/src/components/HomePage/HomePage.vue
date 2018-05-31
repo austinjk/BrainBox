@@ -4,7 +4,7 @@
 
   <div class="slide">
 
-        <video id="neurons" v-playback-rate="0.5" width="100%" autoplay loop>
+        <video id="neurons" v-playback-rate="0.5" width="100%" autoplay muted loop>
             <source src="../../assets/img/neurons.mp4" type="video/mp4">
         </video>
         <div class="content">
@@ -41,44 +41,45 @@
 </template>
 
 <script>
-import TheFooter from "../TheFooter.vue";
-import TheMenubar from "../TheMenubar.vue";
+import TheFooter from '../TheFooter';
+import TheMenubar from '../TheMenubar';
 
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   data() {
     return {
-      selectvalue: "",
-      styleObject: {}
+      selectvalue: '',
+      styleObject: {},
     };
   },
   components: {
     TheFooter,
-    TheMenubar
+    TheMenubar,
   },
   directives: {
     playbackRate(el, binding) {
       el.playbackRate = binding.value;
-    }
+    },
   },
   methods: {
     goToURL() {
       this.$router.push({ path: `/mri?url=${this.selectvalue}` });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .home-container {
+  color: white;
   height: 100vh;
   display: grid;
   grid-template-rows: 30px 1fr 50px;
   grid-template-columns: auto;
   grid-template-areas:
-    "menubar"
-    "slide"
-    "footer";
+    'menubar'
+    'slide'
+    'footer';
 }
 
 .menubar-container {
@@ -114,10 +115,15 @@ export default {
     text-align: center;
     -webkit-appearance: none;
     cursor: pointer;
+    color: inherit;
+    option {
+      color: black;
+    }
   }
 
   #go {
     height: 32px;
+    color: inherit;
     text-align-last: center;
     border: 1px solid #ddd;
     border-radius: 6px;

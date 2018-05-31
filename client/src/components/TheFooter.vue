@@ -5,7 +5,7 @@
                 <a target="_blank" href="http://neuroanatomy.github.io">
                     <img class="logo-naat" src="../assets/img/naat-bw.svg"/>
                 </a>
-                <a target="_blank" href="http://neuroanatomy.github.io" class="linkNoULine">
+                <a target="_blank" href="http://neuroanatomy.github.io" class="neuro-link">
                     groupe de neuroanatomie appliquée et théorique
                 </a>
             </p>
@@ -15,15 +15,21 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: 'Footer',
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .footer-text {
+  color: white;
   width: 100%;
   font-size: small;
   text-align: center;
+
+  .neuro-link {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .logo-naat {

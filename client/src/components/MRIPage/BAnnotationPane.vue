@@ -64,16 +64,16 @@
 
 <script>
 export default {
-  name: "BAnnontationPane",
+  name: 'BAnnontationPane',
   data() {
     return {
       annotation: {
-        name: "test",
-        source: "https://google.com",
-        date: "12/01/18"
-      }
+        name: 'test',
+        source: 'https://google.com',
+        date: '12/01/18',
+      },
     };
-  }
+  },
 };
 </script>
 

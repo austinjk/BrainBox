@@ -7,16 +7,16 @@
 </template>
 
 <script>
-import TheMenubar from "../TheMenubar";
-import TheFooter from "../TheFooter";
+import TheMenubar from '../TheMenubar';
+import TheFooter from '../TheFooter';
 
 export default {
-  name: "UserPage",
-  props: ["id"],
+  name: 'UserPage',
+  props: ['id'],
   components: {
     TheMenubar,
-    TheFooter
-  }
+    TheFooter,
+  },
 };
 </script>
 

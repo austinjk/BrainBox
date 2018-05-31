@@ -6,16 +6,15 @@
 
 <script>
 export default {
-  name: "App"
+  name: 'App',
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:100");
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
 
 * {
   font-size: 14px;
-  color: white;
 }
 
 html,
@@ -23,7 +22,7 @@ body {
   background-color: #222;
   height: 100%;
   margin: 0px;
-  font: 16px/20px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
+  font: 16px/20px 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial,
     Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;

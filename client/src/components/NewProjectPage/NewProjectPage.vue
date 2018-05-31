@@ -1,20 +1,21 @@
 <template>
-<div style="width:100%;height:100%;display:flex;flex-direction:column">
-    
+<div class="page-container">
+
     <!-- Header (fixed height) -->
-    <div style="flex:0 0 64px">
+    <div class="header-container">
         <the-menubar/>
 
         <!-- Small left-top logo -->
-        <div style="display:inline-block;margin:10px">
-            <a href='/' style="text-decoration:none">
-                <img style='height:56px;vertical-align:middle' src='/img/brainbox-logo-small_noFont.svg'/>
-            </a><span style="font-family: Roboto, sans-serif; font-size: 36px; font-weight:100;vertical-align:middle" id="fontLogo"> 
-                <a href='/' style="font-family: Roboto, sans-serif; font-size: 36px; font-weight:100; text-decoration:none">BrainBox</a>
-            </span>
+        <div class="header-logo">
+            <router-link to="/" style="text-decoration:none">
+                <img class="logo-image" src='../../assets/img/brainbox-logo-small_noFont.svg'/>
+                <span class="logo-text" id="fontLogo">
+                    BrainBox
+                </span>
+            </router-link>
         </div>
     </div>
-    
+
     <!-- Content (variable height) -->
     <div id="content" style="flex:1 0 auto">
 
@@ -43,7 +44,7 @@
         </div>
     </div>
     <!-- End Content -->
-    
+
     <!-- Space (fixed height) -->
     <div style="flex:0 0 50px">
     </div>
@@ -55,18 +56,46 @@
 </template>
 
 <script>
-import TheMenubar from "../TheMenubar";
-import TheFooter from "../TheFooter";
+import TheMenubar from '../TheMenubar';
+import TheFooter from '../TheFooter';
 
 export default {
-  name: "NewProjectPage",
+  name: 'NewProjectPage',
   components: {
     TheMenubar,
-    TheFooter
-  }
+    TheFooter,
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
+.page-container {
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
+  .header-logo {
+    display: inline-block;
+    margin: 10px;
+
+    .logo-image {
+      height: 56px;
+      vertical-align: middle;
+    }
+
+    .logo-text {
+      font-family: Roboto, sans-serif;
+      font-size: 36px;
+      font-weight: 100;
+      vertical-align: middle;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+.header-container {
+  flex: 0 0 64px;
+}
 </style>
